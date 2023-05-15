@@ -1,6 +1,7 @@
 import "./App.css";
 import Form from "./Form";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TableData from "./TableData";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Form />} />
+          <Route path="/second" element={<TableData />} />
         </Routes>
       </BrowserRouter>
     </div>
