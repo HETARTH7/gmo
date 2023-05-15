@@ -8,7 +8,6 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import DepartmentList from "./DepartmentList";
 
 interface Post {
   userId: number;
@@ -50,7 +49,6 @@ const TableData = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <DepartmentList />
     </div>
   );
 };

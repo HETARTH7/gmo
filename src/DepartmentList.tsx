@@ -72,7 +72,6 @@ const DepartmentList = () => {
       {departmentData.map((department) => (
         <div key={department.id}>
           <ListItem
-            button
             onClick={() => handleDepartmentToggle(department.id)}
           >
             <ListItemText primary={department.name} />
@@ -91,10 +90,9 @@ const DepartmentList = () => {
               {department.subDepartments.map((subDepartment) => (
                 <ListItem
                   key={subDepartment.id}
-                  button
                   onClick={() => handleSubDepartmentSelect(subDepartment.id)}
                   style={{ paddingLeft: "20px" }}
-                  selected={isSubDepartmentSelected(subDepartment.id)}
+                  // selected={isSubDepartmentSelected(subDepartment.id)}
                 >
                   <ListItemText primary={subDepartment.name} />
                 </ListItem>
