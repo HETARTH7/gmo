@@ -16,7 +16,7 @@ const Form = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (user.name === "" || user.email === "" || user.phone === "") {
-      alert("Please provide all details");
+      alert("Please enter all details");
       window.location.href = "/";
     } else {
       localStorage.setItem("user", JSON.stringify(user));
@@ -38,6 +38,7 @@ const Form = () => {
         label="Phone number"
         value={user.phone}
         onChange={handleInputChange}
+        type="tel"
       />
       <br />
       <TextField
@@ -45,9 +46,15 @@ const Form = () => {
         label="Email"
         value={user.email}
         onChange={handleInputChange}
+        type="email"
       />
       <br />
-      <Button type="submit" variant="contained" color="primary">
+      <Button
+        style={{ marginTop: "1rem" }}
+        type="submit"
+        variant="contained"
+        color="primary"
+      >
         Submit
       </Button>
     </form>

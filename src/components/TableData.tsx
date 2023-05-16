@@ -7,44 +7,47 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Typography,
 } from "@mui/material";
 import DepartmentList from "./DepartmentList";
 
 interface Post {
-  userId: number;
   id: number;
   title: string;
-  body: string;
+  description: string;
 }
 
 const TableData = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("https://api.sampleapis.com/coffee/iced")
       .then((response) => response.json())
       .then((data) => setPosts(data));
   }, []);
 
   return (
     <div>
-      <TableContainer component={Paper}>
+      <Typography variant="h5" color="inherit" component="div">
+        Iced Coffee
+      </Typography>
+      <Typography variant="h6" color="inherit" component="div">
+        Fetched from sample coffee API: https://sampleapis.com/api-list/coffee
+      </Typography>
+
+      <TableContainer style={{ marginBottom: "5rem" }} component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>User ID</TableCell>
-              <TableCell>ID</TableCell>
               <TableCell>Title</TableCell>
-              <TableCell>Body</TableCell>
+              <TableCell>Description</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {posts.map((post) => (
               <TableRow key={post.id}>
-                <TableCell>{post.userId}</TableCell>
-                <TableCell>{post.id}</TableCell>
                 <TableCell>{post.title}</TableCell>
-                <TableCell>{post.body}</TableCell>
+                <TableCell>{post.description}</TableCell>
               </TableRow>
             ))}
           </TableBody>
